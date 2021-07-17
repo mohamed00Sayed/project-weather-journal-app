@@ -1,3 +1,4 @@
+const apiKey = 'cb86559b42d1885ea4cb465cacd3627d';
 /**
 * @description our app initializer function
 * it will just check when the DOM is ready and add a click listener
@@ -71,25 +72,19 @@ function actionOnClick(){
 	const zip = document.querySelector('#zip').value;
 	// set the url accordingly
 	const weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip='
-						+zip+'&appid=cb86559b42d1885ea4cb465cacd3627d&units=metric'; 
+						+zip+'&appid='+apiKey+'&units=metric'; 
 	const userResponse = document.querySelector('#feelings').value;
 	getzData(weatherUrl)
 	.then(function(data){
 		if(data.cod === 200){
 			const temp = data.main.temp+' C';
 			addzData('/addData', {temp:temp, date:newDate, UserResp:userResponse});
-			const newData = {temp:temp, date:newDate, UserResp: userResponse};
-			return newData;
 		}else{
-			addzData('/addData', {temp:'No Response', date:newDate, UserResp:userResponse});
-			const specialRes = {temp:'No Response', date:newDate, UserResp: 'Please check your zipcode '};
-			return specialRes;
+			addzData('/addData', {temp:'No Response', date:newDate, UserResp:'Please check your zipcode '});
 		}
 	})
-	.then(function(data){
-		const temp = data.temp;
-		const res = data.UserResp;
-		updateUI(newDate, temp, res);
+	.then(function(){
+		updateUI();
 	});
 }
 
@@ -99,8 +94,16 @@ function actionOnClick(){
 * @param tempVal the temperature value to be set to the div with id temp
 * @param contVal the comment value to set value for the div with id content
 */
-function updateUI(dateVal, tempVal, contVal){
-	document.querySelector('#date').innerHTML = 'Time: '+dateVal;
-	document.querySelector('#temp').innerHTML = 'Temperature: '+tempVal;
-	document.querySelector('#content').innerHTML = 'Comment: '+contVal;
+function updateUI(){
+	const getLast = getData();
+	getLast('/last')
+	.then(function(data){
+		const tempVal = data.temp;
+		const dateVal = data.date;
+		const contVal = data.UserResp;
+		document.querySelector('#date').innerHTML = 'Time: '+dateVal;
+		document.querySelector('#temp').innerHTML = 'Temperature: '+tempVal;
+		document.querySelector('#content').innerHTML = 'Comment: '+contVal;
+	});
+
 }
