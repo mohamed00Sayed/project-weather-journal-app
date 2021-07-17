@@ -100,7 +100,7 @@ function actionOnClick(){
 * @param contVal the comment value to set value for the div with id content
 */
 function updateUI(dateVal, tempVal, contVal){
-	document.querySelector('#date').textContent = 'Time: '+dateVal;
-	document.querySelector('#temp').textContent = 'Temperature: '+tempVal;
-	document.querySelector('#content').textContent = 'Comment: '+contVal;
+	document.querySelector('#date').innerHTML = 'Time: '+dateVal;
+	document.querySelector('#temp').innerHTML = 'Temperature: '+tempVal;
+	document.querySelector('#content').innerHTML = 'Comment: '+contVal;
 }
