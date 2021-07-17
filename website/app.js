@@ -75,7 +75,7 @@ function actionOnClick(){
 	const userResponse = document.querySelector('#feelings').value;
 	getzData(weatherUrl)
 	.then(function(data){
-		if(data.cod == 200){
+		if(data.cod === 200){
 			const temp = data.main.temp+' C';
 			addzData('/addData', {temp:temp, date:newDate, UserResp:userResponse});
 			const newData = {temp:temp, date:newDate, UserResp: userResponse};
