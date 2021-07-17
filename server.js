@@ -27,7 +27,7 @@ function serverCallBack(){
 }
 
 
-/* a get route for all data*/
+// a get route for all data in the program endpoint
 app.get('/data', returnData);
 
 function returnData(req, res){
@@ -35,7 +35,7 @@ function returnData(req, res){
 	console.log('above data sent...');
 }
 
-/* a post route with the new data to add*/
+//a post route with the new data to add to the program endpoint
 app.post('/addData', addData);
 let key = 0 ;
 function addData(req, res){
@@ -50,14 +50,3 @@ function addData(req, res){
 	key++;
 	console.log('data added...' , obj);
 }
-
-
-
-
-
-
-
-
-
-
-
