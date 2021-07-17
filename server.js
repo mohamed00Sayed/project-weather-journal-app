@@ -50,3 +50,15 @@ function addData(req, res){
 	key++;
 	console.log('data added...' , obj);
 }
+
+//a get route for the last entered data by the userAgent
+app.get('/last', retrieveLast);
+
+function retrieveLast(req, res){
+	if(Object.keys(projectData).length > 0){
+		const oldKey = key - 1;
+		const name = 'obj'+oldKey;
+		const obj = projectData[name];
+		res.send(obj);
+	}
+}
