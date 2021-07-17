@@ -5,6 +5,7 @@
         <title>Weather Journal</title>
         <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
+		<script src="app.js"></script>
     </head>
     <body>
         <div id = "app">
@@ -13,11 +14,11 @@
             </div>
             <div class ="holder zip">
                 <label for="zip">Enter Zipcode here</label>
-                <input type="text" id="zip" placeholder="enter zip code here">
+                <input class="tido" type="text" id="zip" placeholder="enter zip code here">
             </div>
             <div class ="holder feel">
                 <label for="feelings">How are you feeling today?</label>
-                <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+                <textarea class= "myInput tido" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
                 <button id="generate" type = "submit"> Generate </button>
             </div>
             <div class ="holder entry">
@@ -29,7 +30,5 @@
                 </div>
             </div>
         </div>
-        <script src="app.js"></script>
-
     </body>
 </html>
