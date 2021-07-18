@@ -1,4 +1,4 @@
-const apiKey = 'cb86559b42d1885ea4cb465cacd3627d';
+const apiKey = '&appid=cb86559b42d1885ea4cb465cacd3627d&units=metric';
 /**
 * @description our app initializer function
 * it will just check when the DOM is ready and add a click listener
@@ -66,13 +66,13 @@ function actionOnClick(){
 	const addzData = addData();
 	// Create a new date instance dynamically with JS
 	let d = new Date();
-	let newDate = d.getMonth()+'-'+d.getDate()+'-'+d.getFullYear()
-	+' '+ d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+	let newDate = d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear()
+	+'   '+ d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
 	// get zip code entered by the user
 	const zip = document.querySelector('#zip').value;
 	// set the url accordingly
 	const weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip='
-						+zip+'&appid='+apiKey+'&units=metric'; 
+						+zip+apiKey; 
 	const userResponse = document.querySelector('#feelings').value;
 	getzData(weatherUrl)
 	.then(function(data){
