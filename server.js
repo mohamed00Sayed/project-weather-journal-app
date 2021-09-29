@@ -19,7 +19,7 @@ app.use(express.static('website'));
 
 
 // Setup Server
-const port = 5556;
+const port = process.env.PORT || 5000;
 const server = app.listen(port, serverCallBack);
 // the callBack function for the server
 function serverCallBack(){
