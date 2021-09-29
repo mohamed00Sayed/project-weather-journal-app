@@ -71,7 +71,7 @@ function actionOnClick(){
 	// get zip code entered by the user
 	const zip = document.querySelector('#zip').value;
 	// set the url accordingly
-	const weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip='
+	const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?zip='
 						+zip+apiKey; 
 	const userResponse = document.querySelector('#feelings').value;
 	getzData(weatherUrl)
